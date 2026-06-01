@@ -90,3 +90,12 @@ exit /b %EXIT_CODE%
 if "%OS%"=="Windows_NT" endlocal
 
 :omega
+
+
+
+=====================
+Bon mua chim ca
+HOt liu lo vang troi ....
+Roi thi em cung sang song 
+
+...
