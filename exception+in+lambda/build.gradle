@@ -32,15 +32,3 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-
-
-Noi gi day
-Biet
-
-NUa duong di xa ...
-Va them nguoi nua ...
-
-
-=-==\\repositories
-relrkekl
