@@ -17,6 +17,8 @@ configurations {
 	}
 }
 
+// Biet noi gi day
+// Cho chung ta 2 duong ...
 repositories {
 	mavenCentral()
 }
