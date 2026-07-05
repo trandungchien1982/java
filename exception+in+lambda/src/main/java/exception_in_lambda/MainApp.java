@@ -6,6 +6,20 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class MainApp {
+public class MainApp {
+
+	static Logger log = LoggerFactory.getLogger(MainApp.class);
+
+	public static void main(String[] args) throws Exception {
+		log.info("Thực hiện UseCase có Exception được raise trong Lambda và check kết quả!");
+		log.info(" --- Current thread: " + Thread.currentThread().getId());
+		MainApp app = new MainApp();
+
+		try {
+			app.singleThread();
+		} catch (Exception ex) {
+			log.error(" >> Exception occur in SINGLE Thread ", ex);
+		}
 
 	static Logger log = LoggerFactory.getLogger(MainApp.class);
 
