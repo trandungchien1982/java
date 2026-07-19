@@ -14,37 +14,19 @@ public class Main {
   }
 
   public void run() {
-    logger.info("Start new app ...");
+    logger.info("Start new app with Virtual Threads ...");
     List<String> list = getList();
 
-    logger.info("ExecutorCompletionServiceDemo() ... ");
+    logger.info("ExecutorCompletionServiceDemo() - Virtual Thread ... ");
     long startTime = System.currentTimeMillis();
-    new ExecutorCompletionServiceDemo().execute(list, 20);
+    new ExecutorCompletionServiceDemo().execute(list, 10);
     long endTime = System.currentTimeMillis();
-    logger.info(" --- Total time (Part I): " + ( (endTime - startTime) / 1000) + " seconds");
-
-    logger.info("CompletableFutureDemo() ... ");
-    logger.info(" -------------------------------------------------------------------- ");
-    logger.info(" -------------------------------------------------------------------- ");
-    startTime = System.currentTimeMillis();
-    new CompletableFutureDemo().execute(list, 20);
-    endTime = System.currentTimeMillis();
-    logger.info(" --- Total time (Part II): " + ( (endTime - startTime) / 1000) + " seconds");
-
-
-    logger.info("CompletableFutureBreakDemo() ... ");
-    logger.info(" -------------------------------------------------------------------- ");
-    logger.info(" -------------------------------------------------------------------- ");
-    logger.info(" -------------------------------------------------------------------- ");
-    startTime = System.currentTimeMillis();
-    new CompletableFutureBreakDemo().execute(list, 20);
-    endTime = System.currentTimeMillis();
-    logger.info(" --- Total time (Part III): " + ( (endTime - startTime) / 1000) + " seconds");
+    logger.info(" --- Total time (Part I - Virtual Threads): " + ( (endTime - startTime) / 1000) + " seconds");
   }
 
   private List<String> getList() {
     List<String> result = new LinkedList<>();
-    for (int i = 1; i <= 1000; i++) {
+    for (int i = 1; i <= 1000000; i++) {
       result.add("Item_" + i);
     }
     return result;

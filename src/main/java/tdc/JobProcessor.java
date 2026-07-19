@@ -30,10 +30,12 @@ public final class JobProcessor {
             int unitCount,
             AtomicBoolean cancelled
     ) {
-        if (cancelled.get()) {
+        if (cancelled.get() || Thread.currentThread().isInterrupted()) {
           logger.info(" ---------------- >>>>> BREAK due to thread INTERRUPT ... ");
           return null;
         }
+
+        //logger.info(" ---------- Current Thread 1: {}, isVirtual Thread: {}", Thread.currentThread().getId(), Thread.currentThread().isVirtual());
 
         // Randomly create exception:
         int idx = Integer.valueOf(key.replace("Item_", ""));
@@ -44,7 +46,9 @@ public final class JobProcessor {
 
         sleep(itemDelayMs, "processing item " + key);
 
-        if (cancelled.get()) {
+        sleep(5000, "dump sleep 10s ...");
+
+        if (cancelled.get() || Thread.currentThread().isInterrupted()) {
           logger.info(" ---------------- >>>>> BREAK due to thread INTERRUPT 2 ... ");
           return null;
         }
@@ -73,6 +77,7 @@ public final class JobProcessor {
     }
 
     private static void sleep(long milliseconds, String operation) {
+      //logger.info(" --- Sleep time in millis: {}", milliseconds);
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException exception) {
