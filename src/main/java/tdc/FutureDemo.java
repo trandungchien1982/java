@@ -15,9 +15,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public final class ExecutorCompletionServiceDemo {
+public final class FutureDemo {
 
-    private static final Logger log = LoggerFactory.getLogger(ExecutorCompletionServiceDemo.class);
+    private static final Logger log = LoggerFactory.getLogger(FutureDemo.class);
 
     public Map<String, List<String>> execute(List<String> items, int poolSize) {
         ConcurrentHashMap<String, List<String>> resultMap = new ConcurrentHashMap<>();

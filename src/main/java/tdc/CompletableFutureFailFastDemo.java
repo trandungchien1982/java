@@ -12,9 +12,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Multi Executors including breaking
  */
-public final class CompletableFutureBreakDemo {
+public final class CompletableFutureFailFastDemo {
 
-    private static final Logger log = LoggerFactory.getLogger(CompletableFutureBreakDemo.class);
+    private static final Logger log = LoggerFactory.getLogger(CompletableFutureFailFastDemo.class);
 
     public Map<String, List<String>> execute(List<String> items, int poolSize) {
         ConcurrentHashMap<String, List<String>> resultMap = new ConcurrentHashMap<>();
