@@ -12,6 +12,11 @@ public class Main {
     logger.info(" -- Parameters: " + Arrays.asList(args));
     String action = Arrays.stream(args).findFirst().orElse("");
 
+    System.out.println("\n===== Menu for parameters =====");
+    System.out.println("01 - Fibonacci using ForkJoinPool ... ");
+    System.out.println("02 - Sum Array using ForkJoinPool ... ");
+    System.out.println("\nPlease select your choice as following : ./gradlew run --args=\"{choiceKey}\"\n");
+
     new Main().run(action);
   }
 
@@ -21,8 +26,16 @@ public class Main {
     logger.info(" -------------------------------------------------------------------- ");
     long startTime = System.currentTimeMillis();
 
-    logger.info("ForkJoinPool - FibonacciDemo() ... ");
-    new ForkJoinFibonacciDemo().run();
+    switch (action) {
+      case "01" -> {
+        logger.info("ForkJoinPool - FibonacciDemo() ... ");
+        new ForkJoinFibonacciDemo().run();
+      }
+      case "02" -> {
+        logger.info("ForkJoinPool - Sum Array () ... ");
+        new ForkJoinSumArrayDemo().run();
+      }
+    }
 
     long endTime = System.currentTimeMillis();
     logger.info(" --- Total time for choice: " + action + " " + ( (endTime - startTime) / 1000) + " seconds");
