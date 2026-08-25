@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation 'net.bytebuddy:byte-buddy:1.18.11'
+}
+
+jar {
+    archiveBaseName = 'custom-agent'
+
+    manifest {
+        attributes(
+                'Premain-Class': 'com.tdc.agent.CustomAgent',
+                'Can-Redefine-Classes': 'true',
+                'Can-Retransform-Classes': 'true'
+        )
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'custom-agent-demo'
+include 'custom-agent'
+include 'demo-app'

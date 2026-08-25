@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: custom-agent-demo
+
+server:
+  port: 8585
+
+custom:
+  agent:
+    enabled: true
