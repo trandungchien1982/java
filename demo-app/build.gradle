@@ -7,3 +7,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+tasks.named('bootRun') {
+    dependsOn ':custom-agent:jar'
+
+    jvmArgs = [
+            "-javaagent:${rootProject.projectDir}/custom-agent/build/libs/custom-agent-1.0.0.jar",
+            "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    ]
+}

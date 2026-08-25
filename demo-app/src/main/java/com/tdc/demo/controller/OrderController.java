@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
@@ -23,6 +25,7 @@ public class OrderController {
             @RequestParam int x,
             @RequestParam int y,
             @RequestParam String mainValue) {
+        System.out.println("Them custom log cho getData() : " + new Date());
         return orderService.getData(x, y, mainValue);
     }
 
